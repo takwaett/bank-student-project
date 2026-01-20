@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank4Students</title>
+    <link rel="stylesheet" href="banque.css">
+</head>
+<body>
+<header>
+    <h1>Bank for Students</h1>
+    <nav>
+        <a href="login">Connexion</a>
+        <a href="register">Inscription</a>
+        <a href="appointment">Espace compte</a>
+        <a href="appointment">Suivez-nous sur</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Votre banque étudiants</h2>
+    <p>Ouvrez un compte gratuit et bénéficiez d’avantages exclusifs !<br>ou connectez-vous et profiter!
+    </p>
+</section>
+    <title>Inscription</title>
+    
+<form action="register.php" method="POST">
+    <h2>Créer un compte</h2>
+    <input type="text" name="firstname" placeholder="Nom" required>
+    <input type="text" name="lastname" placeholder="Prénom" required>
+    <input type="email" name="email" placeholder="Email étudiant" required>
+    <input type="password" name="password" placeholder="Mot de passe" required>
+    <button type="submit" name="register">S'inscrire</button>
+    <p class="message"></p>
+</form>
+    <title>Connexion</title>
+<form action="login.php" method="post">
+    <h2>Connexion</h2>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Mot de passe" required>
+    <button type="submit" name="login">Se connecter</button>
+    <p class="message"></p>
+</form>    
+    <title>Tableau de bord</title>
+<section class="espace-compte">
+    <h2>Bienvenue dans votre espace compte 👋</h2>
+    <p>Solde de votre compte : <strong>150 TND</strong></p>
+    <a href="déconnexion" class="déconnexion">Déconnexion</a>
+</section>
+<section class="suivre">
+<h3>Suivez-nous sur</h3>
+<div class="image">
+<img src="facebook.png"alt="facebook.png">
+<img src="twitter.jpeg"alt="twitter.jpeg">
+<img src="insta.png"alt="insta.png">
+<img src="linkedin.png"alt="linkedin.png">
+</div>
+
+
+
+</section>
+</body>
+</html>

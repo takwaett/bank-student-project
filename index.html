@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank for Students - Votre banque étudiante</title>
+    <link rel="stylesheet" href="banque.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- En-tête principal -->
+    <header>
+        <div class="header-container">
+            <h1>Bank for Students</h1>
+            <nav>
+                <a href="#login-form">Connexion</a>
+                <a href="#register-form">Inscription</a>
+                <a href="#account-space">Espace compte</a>
+                <a href="#social">Suivez-nous</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section héro / présentation -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Votre banque dédiée aux étudiants</h2>
+            <p>Ouvrez un compte gratuitement et bénéficiez d'avantages exclusifs !<br> 
+               Ou connectez-vous pour profiter de nos services.</p>
+               <img src="étudiant.jpeg"alt="étudiant.jpeg">
+        </div>
+    </section>
+
+    <!-- Contenu principal -->
+    <main class="container">
+        <!-- Section d'inscription -->
+<section id="register-form" class="form-section">
+    <div class="form-container">
+        <h2><i class="fas fa-user-plus"></i> Créer un compte</h2>
+        <form action="register.php" method="POST" class="form">
+            <div class="form-group">
+                <!-- CHANGÉ : name="nom" au lieu de name="firstname" -->
+                <input type="text" name="nom" placeholder="Nom" required>
+                <i class="fas fa-user form-icon">Nom</i>
+            </div>
+            <div class="form-group">
+                <!-- CHANGÉ : name="prenom" au lieu de name="lastname" -->
+                <input type="text" name="prenom" placeholder="Prénom" required>
+                <i class="fas fa-user form-icon">Prénom</i>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Email étudiant" required>
+                <i class="fas fa-envelope form-icon">Email</i>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Mot de passe" required>
+                <i class="fas fa-lock form-icon">Mot de passe</i>
+                <span class="toggle-password" onclick="togglePassword(this)"> <!-- span c'est pour organiser et styliser-->
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+            <div class="password-requirements">
+                <small>Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre.</small>
+                <!--small pour mettre le size petit(remarqué)--> 
+            </div>
+            <button type="submit" name="register" class="btn btn-primary">
+                <i class="fas fa-user-check"></i> S'inscrire
+            </button>
+            <p class="message"></p>
+        </form>
+    </div>
+</section>
+
+        <!-- Section de connexion -->
+        <section id="login-form" class="form-section">
+            <div class="form-container">
+                <h2><i class="fas fa-sign-in-alt"></i> Connexion</h2>
+                <form action="login.php" method="post" class="form">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" required>
+                        <i class="fas fa-envelope form-icon"></i>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Mot de passe" required>
+                        <i class="fas fa-lock form-icon"></i>
+                        <span class="toggle-password" onclick="togglePassword(this)">
+                            <i class="fas fa-eye"></i>
+                        </span>
+                    </div>
+                    <div class="form-options">
+                        <label>
+                            <input type="checkbox" name="remember"> Se souvenir de moi
+                        </label>
+                        <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                    </div>
+                    <button type="submit" name="login" class="btn btn-success">
+                        <i class="fas fa-sign-in-alt"></i> Se connecter
+                    </button>
+                    <p class="message"></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Section espace compte -->
+        <section id="account-space" class="account-section">
+            <div class="account-container">
+                <h2><i class="fas fa-user-circle"></i> Bienvenue dans votre espace compte 👋</h2>
+                <div class="account-info">
+                    <div class="balance-card">
+                        <h3><i class="fas fa-wallet"></i> Solde de votre compte</h3>
+                        <p class="balance-amount">150 <span class="currency">TND</span></p>
+                        <p class="balance-date">Mise à jour : <span id="current-date"></span></p>
+                    </div>
+                    <div class="account-actions">
+                        <button class="btn-action"><i class="fas fa-exchange-alt"></i> Virement</button>
+                        <button class="btn-action"><i class="fas fa-history"></i> Historique</button>
+                        <button class="btn-action"><i class="fas fa-cog"></i> Paramètres</button>
+                    </div>
+                </div>
+                <a href="logout.php" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+            </div>
+        </section>
+
+        <!-- Section réseaux sociaux -->
+        <section id="social" class="social-section">
+            <div class="social-container">
+                <h3><i class="fas fa-share-alt"></i> Suivez-nous sur les réseaux sociaux</h3>
+                <p class="social-subtitle">Restez connectés pour ne rien manquer de nos actualités</p>
+                
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" class="social-link facebook">
+                         <i class="fab fa-facebook-f"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="social-link twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="social-link instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="social-link linkedin">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Bank for Students</h4>
+                <p>La banque conçue spécialement pour les étudiants, avec des avantages exclusifs et des frais réduits.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens rapides</h4>
+                <a href="#">Prendre un rendez-vous</a>
+                <a href="#">pack étudiant</a>
+                <a href="#">carte bancaire</a>
+                <a href="#">L'application mobile</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-envelope"></i> contact@bank for students.tn</p>
+                <p><i class="fas fa-phone"></i> +216 70 000 000</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Bank for Students. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Afficher/masquer le mot de passe
+        function togglePassword(element) {
+            const passwordField = element.parentElement.querySelector('input');
+            const eyeIcon = element.querySelector('i');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+
+        // Afficher la date actuelle
+        function updateDate() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            document.getElementById('current-date').textContent = 
+                now.toLocaleDateString('fr-FR', options);
+        }
+
+        // Mettre à jour la date au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDate();
+            
+            // Navigation fluide
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+
+            // Effet sur les boutons d'action
+            document.querySelectorAll('.btn-action').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        });
+
+        // Rafraîchir la date toutes les minutes
+        setInterval(updateDate, 60000);
+    </script>
+</body>
+</html>
